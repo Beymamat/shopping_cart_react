@@ -5,8 +5,8 @@ export default function(props) {
        <li className="collection-item">
            {name} {price}$ x {quantity}= {price*quantity} <b>$</b>
            <span className="secondary-content">
-               <i className="material-icons">
-                   send
+               <i className="material-icons basket-delete">
+                   delete_forever
                </i>
            </span>
        </li>

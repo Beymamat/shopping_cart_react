@@ -75,3 +75,7 @@ nav{
   right: 0.5rem; 
   color: #fff;
 }
+
+.basket-delete{
+  cursor: pointer;
+}
