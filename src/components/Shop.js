@@ -4,6 +4,7 @@ import Loader from "./Loader";
 import GoodList from "./GoodList";
 import { Cart } from "./Cart";
 import BasketList from "./BasketList";
+import { toast } from "react-toastify";
 
 export default function Shop() {
     const [goods, setGoods] = useState([]);
@@ -14,7 +15,6 @@ export default function Shop() {
     console.log(order)
 
     const addToBasket = (item) => {
-
         const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
 
         if (itemIndex < 0) {
@@ -38,6 +38,7 @@ export default function Shop() {
             setOrder(newOrder)
         }
 
+        toast.success('Goods add to cart product!')
     }
 
     const handleBasketShow=()=>{
@@ -47,6 +48,7 @@ export default function Shop() {
     const removeFromBasket=(itemID)=>{
         const newOrder=order.filter(item=>item.id!==itemID )
         setOrder(newOrder)
+        toast.error('Goods remove to cart product!')
     }
 
 
@@ -63,6 +65,7 @@ export default function Shop() {
             }
         })
        setOrder(newOrder)  
+       toast.info('Goods cart change increment  product!')
     }
 
     const decrementQuantity=(itemID)=>{
@@ -78,6 +81,7 @@ export default function Shop() {
             }
         })
        setOrder(newOrder)  
+       toast.warning('Goods cart change decrement  product!')
     }
 
 
