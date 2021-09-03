@@ -8,7 +8,8 @@ export default function BasketList(props) {
      }, 0)
 
      return(
-         <ul className="collection basket-list">
+           <div className="basket">
+  <ul className="collection basket-list">
             <li className="collection-item active">
                 Basket
             </li>
@@ -24,6 +25,9 @@ export default function BasketList(props) {
             </li>
             <i className="material-icons basket-close" onClick={props.handleBasketShow}> close</i>
          </ul>
+           </div>
+
+       
      )
 
 }
