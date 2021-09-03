@@ -85,7 +85,11 @@ nav{
   right: 0.5rem; 
   color: #fff;
 }
-
+.basket-plus , .basket-minus {
+  padding: 1px 2px;
+  border: 1px solid #e0e0e0;
+  font-size: 1rem;
+}
 .basket-delete{
   cursor: pointer;
 }

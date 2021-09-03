@@ -49,6 +49,39 @@ export default function Shop() {
         setOrder(newOrder)
     }
 
+
+    const incrementQuantity=(itemID)=>{
+        const newOrder=order.map(item=>{
+            if(item.id===itemID){
+                const newQuantity=item.quantity+1
+                return{
+                    ...item,
+                    quantity: newQuantity
+                }
+            } else{
+                return item
+            }
+        })
+       setOrder(newOrder)  
+    }
+
+    const decrementQuantity=(itemID)=>{
+        const newOrder=order.map(item=>{
+            if(item.id===itemID){
+                const newQuantity=item.quantity-1
+                return{
+                    ...item,
+                    quantity: newQuantity >=0 ? newQuantity : 0
+                }
+            } else{
+                return item
+            }
+        })
+       setOrder(newOrder)  
+    }
+
+
+
     useEffect(() => { }, [])
 
     useEffect(() => {
@@ -70,7 +103,16 @@ export default function Shop() {
         <div className="container content">
             <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
             {loading ? <Loader /> : <GoodList goods={goods} addToBasket={addToBasket} />}
-            {isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket}/> }
+            {
+            isBasketShow && 
+            <BasketList 
+               order={order} 
+               handleBasketShow={handleBasketShow} 
+               removeFromBasket={removeFromBasket}
+               incrementQuantity={incrementQuantity}
+               decrementQuantity={decrementQuantity}
+               /> 
+            }
         </div>
     )
 }
