@@ -15,7 +15,7 @@ export default function BasketList(props) {
             {
                 order.length ? order.map(item=>{
                     return(
-                        <BasketItem key={item.id} {...item} />
+                        <BasketItem key={item.id} {...item} removeFromBasket={props.removeFromBasket} />
                     )
                 }) : <li className="collection-item">Basket is empty</li>
             }

@@ -44,6 +44,11 @@ export default function Shop() {
         setBasketShow(!isBasketShow)
     }
 
+    const removeFromBasket=(itemID)=>{
+        const newOrder=order.filter(item=>item.id!==itemID )
+        setOrder(newOrder)
+    }
+
     useEffect(() => { }, [])
 
     useEffect(() => {
@@ -65,7 +70,7 @@ export default function Shop() {
         <div className="container content">
             <Cart quantity={order.length} handleBasketShow={handleBasketShow} />
             {loading ? <Loader /> : <GoodList goods={goods} addToBasket={addToBasket} />}
-            {isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow}/> }
+            {isBasketShow && <BasketList order={order} handleBasketShow={handleBasketShow} removeFromBasket={removeFromBasket}/> }
         </div>
     )
 }
